@@ -19,6 +19,10 @@ const router = createRouter({
           path: '/tag',
           component: () => import('@/views/Tag/TagPage.vue'),
         },
+        {
+          path: '/message',
+          component: () => import('@/views/Message/MessagePage.vue'),
+        },
       ],
     },
   ],

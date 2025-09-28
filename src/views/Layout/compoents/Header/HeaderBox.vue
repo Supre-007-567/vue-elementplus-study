@@ -1,17 +1,15 @@
 <script setup>
-// import { ref } from 'vue'
-// import { useRouter } from 'vue-router'
-// const router = useRouter()
-// const route = useRoute()
-//默认选中的菜单索引
-// const selectedIndex = ref('2-2')
-// const selectedIndex = ref("3")
-
-//选中菜单触发的回调
-// const selected = (index, indexPath) => {
-//   console.log('index', index, 'indexPath', indexPath)
-//   router.push(index)
-// }
+const menuMap = {
+  '/button': '按钮',
+  '/icon': 'icon',
+  '/message': '确认框',
+  '/tag': '标签页',
+}
+const emit = defineEmits(['selected'])
+const selected = (index) => {
+  console.log('当前选中文字:', menuMap[index])
+  emit('selected', menuMap[index])
+}
 </script>
 
 <template>
@@ -24,12 +22,14 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       router
+      @select="selected"
     >
-      <el-menu-item>ElementPlus-Study</el-menu-item>
+      <el-menu-item class="logo">ElementPlus-Study</el-menu-item>
       <el-sub-menu index="1">
         <template #title>基础组件</template>
         <el-menu-item index="/button">按钮</el-menu-item>
         <el-menu-item index="/icon">icon</el-menu-item>
+        <el-menu-item index="/message">确认框</el-menu-item>
         <el-menu-item index="/tag">标签页</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="2">
@@ -44,4 +44,13 @@
   </el-header>
 </template>
 
-<style scoped></style>
+<style scoped>
+.el-header {
+  padding: 50px;
+}
+.logo {
+  font-style: italic;
+  user-select: none; /* 禁止用户选择文本，也就无法复制 */
+  font-weight: 700;
+}
+</style>
