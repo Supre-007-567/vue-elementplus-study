@@ -3,7 +3,8 @@ const menuMap = {
   '/button': '按钮',
   '/icon': 'icon',
   '/message': '确认框',
-  '/tag': '标签页',
+  '/tag': '选项卡',
+  '/nav': '导航',
 }
 const emit = defineEmits(['selected'])
 const selected = (index) => {
@@ -30,7 +31,8 @@ const selected = (index) => {
         <el-menu-item index="/button">按钮</el-menu-item>
         <el-menu-item index="/icon">icon</el-menu-item>
         <el-menu-item index="/message">确认框</el-menu-item>
-        <el-menu-item index="/tag">标签页</el-menu-item>
+        <el-menu-item index="/nav">导航</el-menu-item>
+        <el-menu-item index="/tag">选项卡</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="2">
         <template #title>我的工作台</template>

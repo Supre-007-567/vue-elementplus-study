@@ -23,6 +23,10 @@ const router = createRouter({
           path: '/message',
           component: () => import('@/views/Message/MessagePage.vue'),
         },
+        {
+          path: '/nav',
+          component: () => import('@/views/Nav/NavPage.vue'),
+        },
       ],
     },
   ],
